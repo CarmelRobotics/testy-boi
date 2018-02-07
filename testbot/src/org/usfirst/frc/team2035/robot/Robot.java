@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DigitalInput;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -30,6 +31,7 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driver;
 	
 	public static OI oi;
+	public static DigitalInput limSwitch;
 
 	
 	/**
@@ -40,6 +42,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		driver = new DriveTrain();
+		limSwitch = new DigitalInput(RobotMap.LIMIT_SWITCH);
 	}
 
 	/**
@@ -104,6 +107,10 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		driver.arcadeDrive();
+		if(limSwitch.get()!=false)
+		{
+			new printButton("yeet");
+		}
 	}
 
 	/**
