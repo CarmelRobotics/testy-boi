@@ -53,7 +53,7 @@ public class OI {
 	private static Button tester;
 	public static void initialize() 
 	{
-		tester = RobotMap.PRINT_BUTTON;
-		tester.whileHeld(new printer());
+		//tester = RobotMap.PRINT_BUTTON;
+		//tester.whileHeld(new printer());
 	}
 }
