@@ -109,7 +109,7 @@ public class Robot extends IterativeRobot {
 		driver.arcadeDrive();
 		if(limSwitch.get()!=false)
 		{
-			new printButton("yeet");
+			System.out.println("yeet");
 		}
 	}
 

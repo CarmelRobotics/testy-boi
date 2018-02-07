@@ -26,10 +26,11 @@ public class RobotMap {
 	
 	/*DIOs*/
 	public static final int LIMIT_SWITCH = 0;
+	public static final int THREE_WAY_SWITCH = 1;
 	/* Joysticks and Joystick Buttons*/
 	public static final int JOYSTICK1_USB_NUM = 0;
 	public static final Joystick JOYSTICK1 = new Joystick(JOYSTICK1_USB_NUM);
-		public static final JoystickButton EXAMPLE = new JoystickButton(JOYSTICK1, 1);
+	public static final JoystickButton PRINT_BUTTON = new JoystickButton(JOYSTICK1, 1);
 		
 
 }
