@@ -51,5 +51,9 @@ public class DriveTrain extends Subsystem {
 	public void arcadeDrive() {
 		drive.arcadeDrive(-stick.getY(), -stick.getX(), true);
 	}
+	public void arcadeDrive(int val1, int val2)
+	{
+		drive.arcadeDrive(val1, val2, true);
+	}
     
 }

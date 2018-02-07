@@ -31,7 +31,8 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driver;
 	
 	public static OI oi;
-	public static DigitalInput limSwitch;
+	public static DigitalInput oneSwitch;
+	public static DigitalInput twoSwitch;
 
 	
 	/**
@@ -42,7 +43,8 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		driver = new DriveTrain();
-		limSwitch = new DigitalInput(RobotMap.LIMIT_SWITCH);
+		oneSwitch = new DigitalInput(RobotMap.ONE_SWITCH);
+		twoSwitch = new DigitalInput(RobotMap.TWO_SWITCH);
 	}
 
 	/**
@@ -106,13 +108,17 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		driver.arcadeDrive();
-		if(limSwitch.get()!=false)
-		{
-			System.out.println("yeet");
-		}
+		//driver.arcadeDrive();
+		if(oneSwitch.get()&&twoSwitch.get())
+			driver.arcadeDrive(100, 0);
+		else if(oneSwitch.get())
+			driver.arcadeDrive(-100,0);
+		else if (twoSwitch.get())
+			driver.arcadeDrive(0,0);
+		else
+			System.out.println("This isn't supposed to happen, you should probably get help.");
 	}
-
+ 
 	/**
 	 * This function is called periodically during test mode.
 	 */
