@@ -33,7 +33,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static DigitalInput oneSwitch;
 	public static DigitalInput twoSwitch;
-
+	public static int prevCheck;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -45,6 +45,7 @@ public class Robot extends IterativeRobot {
 		driver = new DriveTrain();
 		oneSwitch = new DigitalInput(RobotMap.ONE_SWITCH);
 		twoSwitch = new DigitalInput(RobotMap.TWO_SWITCH);
+		prevCheck = -1;
 	}
 
 	/**
@@ -108,15 +109,23 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		//driver.arcadeDrive();
-		if(oneSwitch.get()&&twoSwitch.get())
-			driver.arcadeDrive(100, 0);
-		else if(oneSwitch.get())
-			driver.arcadeDrive(-100,0);
-		else if (twoSwitch.get())
-			driver.arcadeDrive(0,0);
-		else
-			System.out.println("This isn't supposed to happen, you should probably get help.");
+		driver.arcadeDrive();
+		if(!oneSwitch.get()&&!twoSwitch.get()) //SWITCH IS WIRED HIGH
+		{
+			System.out.println("Both True, this should not happen");
+		}
+		else if(!oneSwitch.get()) 
+		{
+			System.out.println("Switch one true.");
+		}
+		else if(!twoSwitch.get()) 
+		{
+			System.out.println("Switch two true");
+		}
+		else 
+		{
+			System.out.println("Both False"); 
+		}
 	}
  
 	/**
