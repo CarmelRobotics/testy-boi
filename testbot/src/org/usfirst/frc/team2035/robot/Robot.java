@@ -63,17 +63,7 @@ public class Robot extends IterativeRobot {
 
 	}
 
-	/**
-	 * This autonomous (along with the chooser code above) shows how to select
-	 * between different autonomous modes using the dashboard. The sendable
-	 * chooser code works with the Java SmartDashboard. If you prefer the
-	 * LabVIEW Dashboard, remove all of the chooser code and uncomment the
-	 * getString code to get the auto name from the text box below the Gyro
-	 *
-	 * <p>You can add additional auto modes by adding additional commands to the
-	 * chooser code above (like the commented example) or additional comparisons
-	 * to the switch structure below with additional strings & commands.
-	 */
+	
 	@Override
 	public void autonomousInit() {
 
@@ -92,11 +82,11 @@ public class Robot extends IterativeRobot {
 	 * This function is called periodically during autonomous.
 	 */
 	@Override
-	public void autonomousPeriodic() {
-	}
+	public void autonomousPeriodic() { //this is the repeated code during autonomous
+	}  
 
 	@Override
-	public void teleopInit() {
+	public void teleopInit() { 
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -106,15 +96,15 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during operator control.
 	 */
-	@Override
+	@Override 
 	public void teleopPeriodic() {
-		Scheduler.getInstance().run();
+		Scheduler.getInstance().run();//This line is what causes teleop to loop through multiple times
 		driver.arcadeDrive();
-		if(!oneSwitch.get()&&!twoSwitch.get()) //SWITCH IS WIRED HIGH
+		if(!oneSwitch.get()&&!twoSwitch.get()) //SWITCH IS WIRED HIGH ON TEST BOT AS OF 2/10/18 IF COMMENT IS NOT REMOVED IT STILL IS.
 		{
-			System.out.println("Both True, this should not happen");
+			System.out.println("Both True, this should not happen"); 
 		}
-		else if(!oneSwitch.get()) 
+		else if(!oneSwitch.get())
 		{
 			System.out.println("Switch one true.");
 		}
@@ -134,7 +124,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void testPeriodic() {
 	}
-	public static DriveTrain getDriveTrain() {
+	public static DriveTrain getDriveTrain() { //method to return the drive train as a drive train.
 		return driver;
 	}
 }

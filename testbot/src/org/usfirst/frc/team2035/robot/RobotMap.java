@@ -23,7 +23,6 @@ public class RobotMap {
 	public static final int M_RIGHT_MOTOR_PWM = 4;
 	public static final int B_RIGHT_MOTOR_PWM = 5;
 
-	
 	/*DIOs*/
 	public static final int ONE_SWITCH = 0;
 	public static final int TWO_SWITCH = 1;
