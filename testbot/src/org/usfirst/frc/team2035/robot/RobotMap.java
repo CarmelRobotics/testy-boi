@@ -15,19 +15,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * floating around.
  */
 public class RobotMap {
-	// For example to map the left and right motors, you could define the
-	// following variables to use with your drivetrain subsystem.
-	// public static int leftMotor = 1;
-	// public static int rightMotor = 2;
-
-	// If you are using multiple modules, make sure to define both the port
-	// number and the module. For example you with a rangefinder:
-	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;
-	/**
-	 * Motor/Speed Controller PWMs
-	 * Number for each of these needs to be the corresponding PWM slot
-	 */
+	/*PWMS*/
 	public static final int F_LEFT_MOTOR_PWM = 0;
 	public static final int M_LEFT_MOTOR_PWM = 1;
 	public static final int B_LEFT_MOTOR_PWM = 2;
@@ -35,13 +23,13 @@ public class RobotMap {
 	public static final int M_RIGHT_MOTOR_PWM = 4;
 	public static final int B_RIGHT_MOTOR_PWM = 5;
 
-	
-	/*
-	 * Joysticks and Joystick Buttons	
-	 */
+	/*DIOs*/
+	public static final int ONE_SWITCH = 0;
+	public static final int TWO_SWITCH = 1;
+	/* Joysticks and Joystick Buttons*/
 	public static final int JOYSTICK1_USB_NUM = 0;
 	public static final Joystick JOYSTICK1 = new Joystick(JOYSTICK1_USB_NUM);
-		public static final JoystickButton EXAMPLE = new JoystickButton(JOYSTICK1, 1);
+	public static final JoystickButton PRINT_BUTTON = new JoystickButton(JOYSTICK1, 1);
 		
 
 }
